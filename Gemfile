@@ -43,3 +43,6 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# Use minitest for tests
+gem "minitest-rails", group: [:development, :test]
