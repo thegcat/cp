@@ -14,4 +14,12 @@ describe ChiliProject::ProjectCreator do
     @project_creator.process(project_params)
     project_store.verify
   end
+
+  it "must bubble up errors" do
+    def project_store.create(*args)
+      raise StandardError
+    end
+
+    proc {@project_creator.process({})}.must_raise(ChiliProject::ProjectCreator::CreationError)
+  end
 end

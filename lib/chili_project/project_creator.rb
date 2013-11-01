@@ -1,5 +1,7 @@
 module ChiliProject
   class ProjectCreator
+    class CreationError < StandardError; end
+
     attr_reader :project_store
 
     def initialize(project_store)
@@ -7,7 +9,11 @@ module ChiliProject
     end
 
     def process(project_params)
-      @project_store.create(project_params)
+      begin
+        @project_store.create(project_params)
+      rescue StandardError
+        raise CreationError
+      end
     end
   end
 end
