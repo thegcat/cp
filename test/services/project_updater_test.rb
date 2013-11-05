@@ -8,7 +8,7 @@ describe ChiliProject::ProjectUpdater do
   let(:some_project_id) {124}
 
   before do
-    project_store.expect :find, some_project, [124]
+    project_store.expect :find, some_project, [some_project_id]
     some_project.expect :update, true, [project_params]
 
     @project_updater = ChiliProject::ProjectUpdater.new(project_store)

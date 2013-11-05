@@ -3,8 +3,22 @@ require "test_helper"
 describe ProjectsController do
   let(:project_creator) {MiniTest::Mock.new}
   let(:project_updater) {MiniTest::Mock.new}
+  let(:project_destroyer) {MiniTest::Mock.new}
   let(:some_project) {projects(:one)}
   let(:project_params) {{}}
+
+  describe "#new" do
+    let(:action) do
+      lambda do
+        get :new
+      end
+    end
+
+    before {action.call}
+
+    it {assert_response :success}
+    it {assert_template :new}
+  end
 
   describe "#create" do
     let(:action) do
@@ -23,14 +37,9 @@ describe ProjectsController do
         action.call
       end
 
-      it "should pass parameters to the project creation service" do
-        project_creator.verify
-      end
-
-      it "should redirect to the created project" do
-        assert_response :redirect
-        assert_redirected_to project_path(some_project)
-      end
+      it {project_creator.verify}
+      it {assert_response :redirect}
+      it {assert_redirected_to project_path(some_project)}
     end
 
     describe "when project creation fails" do
@@ -41,10 +50,22 @@ describe ProjectsController do
         action.call
       end
 
-      it "should respond with an error" do
-        assert_response 422
+      it {assert_response 422} # Error
+    end
+  end
+
+  describe "#edit" do
+    let(:action) do
+      lambda do
+        get :edit, id: some_project.id
       end
     end
+
+    before {action.call}
+
+    it {assert_equal assigns(:project), some_project}
+    it {assert_response :success}
+    it {assert_template :edit}
   end
 
   describe "#update" do
@@ -64,14 +85,9 @@ describe ProjectsController do
         action.call
       end
 
-      it "should pass parameters to the project update service" do
-        project_updater.verify
-      end
-
-      it "should redirect to the updated project" do
-        assert_response :redirect
-        assert_redirected_to project_path(some_project)
-      end
+      it {project_updater.verify}
+      it {assert_response :redirect}
+      it {assert_redirected_to project_path(some_project)}
     end
 
     describe "when project update fails" do
@@ -82,9 +98,54 @@ describe ProjectsController do
         action.call
       end
 
-      it "should respond with an error" do
-        assert_response 422
+      it {assert_response 422}
+    end
+  end
+
+  describe "#show" do
+    let(:action) do
+      lambda do
+        get :show, id: some_project.id
       end
     end
+
+    before {action.call}
+
+    it {assert_equal assigns(:project), some_project}
+    it {assert_response :success}
+    it {assert_template :show}
+  end
+
+  describe "#index" do
+    let(:action) do
+      lambda do
+        get :index
+      end
+    end
+
+    before {action.call}
+
+    it {assert_equal assigns(:projects), [some_project]}
+    it {assert_response :success}
+    it {assert_template :index}
+  end
+
+  describe "#destroy" do
+    let(:action) do
+      lambda do
+        @controller.stub :project_destroy_service, project_destroyer do
+          delete :destroy, {id: some_project.id}
+        end
+      end
+    end
+
+    before do
+      project_destroyer.expect :process, some_project, [some_project.id.to_s]
+      action.call
+    end
+
+    it {project_destroyer.verify}
+    it {assert_response :redirect}
+    it {assert_redirected_to projects_path}
   end
 end
