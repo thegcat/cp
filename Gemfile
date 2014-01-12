@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails', '4.0.2'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -48,4 +48,4 @@ end
 # gem 'debugger', group: [:development, :test]
 
 # Use minitest for tests
-gem "minitest-rails", group: [:development, :test]
+gem 'minitest-rails', '~> 1.0.0.beta2', group: [:development, :test]
