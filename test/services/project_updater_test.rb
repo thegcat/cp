@@ -1,7 +1,7 @@
 require "services_test_helper"
-require "chili_project/project_updater"
+require "project_updater"
 
-describe ChiliProject::ProjectUpdater do
+describe ProjectUpdater do
   let(:project_params) {{name: "Some other project"}}
   let(:project_store) {MiniTest::Mock.new}
   let(:some_project) {MiniTest::Mock.new}
@@ -11,7 +11,7 @@ describe ChiliProject::ProjectUpdater do
     project_store.expect :find, some_project, [some_project_id]
     some_project.expect :update, true, [project_params]
 
-    @project_updater = ChiliProject::ProjectUpdater.new(project_store)
+    @project_updater = ProjectUpdater.new(project_store)
   end
 
   let(:action) {lambda {@project_updater.process(some_project_id, project_params)}}
@@ -37,6 +37,6 @@ describe ChiliProject::ProjectUpdater do
       raise StandardError
     end
 
-    proc {action.call}.must_raise(ChiliProject::ProjectUpdater::UpdateError)
+    proc {action.call}.must_raise(ProjectUpdater::UpdateError)
   end
 end

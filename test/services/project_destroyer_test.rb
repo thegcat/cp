@@ -1,7 +1,7 @@
 require "services_test_helper"
-require "chili_project/project_destroyer"
+require "project_destroyer"
 
-describe ChiliProject::ProjectDestroyer do
+describe ProjectDestroyer do
   let(:project_store) {MiniTest::Mock.new}
   let(:some_project) {MiniTest::Mock.new}
   let(:some_project_id) {124}
@@ -10,7 +10,7 @@ describe ChiliProject::ProjectDestroyer do
     project_store.expect :find, some_project, [some_project_id]
     some_project.expect :destroy, some_project
 
-    @project_destroyer = ChiliProject::ProjectDestroyer.new(project_store)
+    @project_destroyer = ProjectDestroyer.new(project_store)
   end
 
   let(:action) {lambda {@project_destroyer.process(some_project_id)}}

@@ -1,12 +1,12 @@
 require "services_test_helper"
-require "chili_project/project_creator"
+require "project_creator"
 
-describe ChiliProject::ProjectCreator do
+describe ProjectCreator do
   let(:project_params) {{name: "Some project"}}
   let(:project_store) {MiniTest::Mock.new}
 
   before do
-    @project_creator = ChiliProject::ProjectCreator.new(project_store)
+    @project_creator = ProjectCreator.new(project_store)
   end
 
   it "must pass project parameters" do
@@ -20,6 +20,6 @@ describe ChiliProject::ProjectCreator do
       raise StandardError
     end
 
-    proc {@project_creator.process({})}.must_raise(ChiliProject::ProjectCreator::CreationError)
+    proc {@project_creator.process({})}.must_raise(ProjectCreator::CreationError)
   end
 end

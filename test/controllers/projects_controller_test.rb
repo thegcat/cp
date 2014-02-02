@@ -45,7 +45,7 @@ describe ProjectsController do
     describe "when project creation fails" do
       before do
         def project_creator.process(*args)
-          raise ChiliProject::ProjectCreator::CreationError
+          raise ProjectCreator::CreationError
         end
         action.call
       end
@@ -93,7 +93,7 @@ describe ProjectsController do
     describe "when project update fails" do
       before do
         def project_updater.process(*args)
-          raise ChiliProject::ProjectUpdater::UpdateError
+          raise ProjectUpdater::UpdateError
         end
         action.call
       end

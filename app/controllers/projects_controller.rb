@@ -1,7 +1,3 @@
-require "chili_project/project_creator"
-require "chili_project/project_updater"
-require "chili_project/project_destroyer"
-
 class ProjectsController < ApplicationController
   respond_to :html
   represents :xml, Project
@@ -14,7 +10,7 @@ class ProjectsController < ApplicationController
     begin
       @project = project_creation_service.process(project_params)
       flash[:notice] = t('projects.creation_successful')
-    rescue ChiliProject::ProjectCreator::CreationError
+    rescue ProjectCreator::CreationError
       head :status => :unprocessable_entity and return
     end
 
@@ -30,7 +26,7 @@ class ProjectsController < ApplicationController
     begin
       @project = project_update_service.process(params[:id], project_params)
       flash[:notice] = t('projects.update_successful')
-    rescue ChiliProject::ProjectUpdater::UpdateError
+    rescue ProjectUpdater::UpdateError
       head status: :unprocessable_entity and return
     end
 
@@ -63,14 +59,14 @@ class ProjectsController < ApplicationController
   end
 
   def project_creation_service
-    ChiliProject::ProjectCreator.new(Project)
+    ProjectCreator.new(Project)
   end
 
   def project_update_service
-    ChiliProject::ProjectUpdater.new(Project)
+    ProjectUpdater.new(Project)
   end
 
   def project_destroy_service
-    ChiliProject::ProjectDestroyer.new(Project)
+    ProjectDestroyer.new(Project)
   end
 end
