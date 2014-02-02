@@ -4,7 +4,7 @@ class ProjectCreator
   attr_reader :project_store
 
   def initialize(project_store)
-    @project_store = project_store
+    @project_store = project_store || default_project_store
   end
 
   def process(project_params)
@@ -14,5 +14,11 @@ class ProjectCreator
       raise CreationError
     end
     return p
+  end
+
+  private
+
+  def default_project_store
+    Project
   end
 end

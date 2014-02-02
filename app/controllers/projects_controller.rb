@@ -59,14 +59,14 @@ class ProjectsController < ApplicationController
   end
 
   def project_creation_service
-    ProjectCreator.new(Project)
+    ProjectCreator.new
   end
 
   def project_update_service
-    ProjectUpdater.new(Project)
+    ProjectUpdater.new
   end
 
   def project_destroy_service
-    ProjectDestroyer.new(Project)
+    ProjectDestroyer.new
   end
 end
