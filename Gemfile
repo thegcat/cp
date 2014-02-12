@@ -59,3 +59,6 @@ gem 'minitest-rails', '~> 1.0.0.beta2', group: [:development, :test]
 # Use guard
 gem 'guard-minitest', group: :development
 gem 'growl', group: :development
+
+# Use coveralls.io for code coverage
+gem 'coveralls', require: false, group: :test
