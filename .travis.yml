@@ -3,9 +3,9 @@ cache: bundler
 # needed until https://github.com/blowmage/minitest-rails/issues/135 is solved
 script: bundle exec rake minitest:all
 rvm:
-  - 1.9
   - 2.0
   - 2.1
-  - jruby-19mode
+  - jruby-head-20mode
+  - jruby-head-21mode
   - rbx
 bundler_args: --without development,doc
