@@ -5,7 +5,6 @@ script: bundle exec rake minitest:all
 rvm:
   - 2.0
   - 2.1
-  - jruby-head-20mode
-  - jruby-head-21mode
+  - jruby-head
   - rbx
 bundler_args: --without development,doc
