@@ -1,5 +1,5 @@
 class ProjectDecorator < Draper::Decorator
-  delegate :id
+  delegate :id, :to_key
 
   def name
     object.name || h.t('projects.singular_with_number', id: object.id)

@@ -1,0 +1,6 @@
+<div id="new-project" class="project new">
+  <%= form_for :project, url: {action: :create} do |f| -%>
+    <%= f.text_field :name %>
+    <%= f.submit "Create" %>
+  <% end -%>
+</div>

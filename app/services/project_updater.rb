@@ -3,7 +3,7 @@ class ProjectUpdater
 
   attr_reader :project_store
 
-  def initialize(project_store)
+  def initialize(project_store = nil)
     @project_store = project_store || default_project_store
   end
 

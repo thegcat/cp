@@ -1,0 +1,6 @@
+<div id='edit-project-<%= @project.id -%>' class='project edit'>
+  <%= form_for @project, url: {action: :update}, method: :patch do |f| -%>
+    <%= f.text_field :name %>
+    <%= f.submit 'Save' %>
+  <% end -%>
+</div>
