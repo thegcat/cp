@@ -54,9 +54,12 @@ group :development, :test do
   gem 'minitest-rails-capybara', github: 'jordanbrock/minitest-rails-capybara', ref: 'f043c5a'
 end
 
-# Use guard
-gem 'guard-minitest', group: :development
-gem 'growl', group: :development
+group :development do
+  # Use guard
+  gem 'guard-minitest'
+  gem 'guard-bundler'
+  gem 'growl'
+end
 
 # Use coveralls.io for code coverage
 gem 'coveralls', require: false, group: :test

@@ -12,3 +12,7 @@ guard :minitest do
 
   notification :growl
 end
+
+guard :bundler do
+  watch('Gemfile')
+end
