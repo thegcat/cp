@@ -52,6 +52,7 @@ group :development, :test do
   gem 'minitest-rails', '~> 1.0.0.beta2'
   # use vanilla gem once https://github.com/blowmage/minitest-rails-capybara/pull/21 is resolved
   gem 'minitest-rails-capybara', github: 'jordanbrock/minitest-rails-capybara', ref: 'f043c5a'
+  gem 'factory_girl_rails'
 end
 
 group :development do
