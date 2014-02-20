@@ -155,7 +155,7 @@ GEM
       ffi (>= 0.5.0)
     rdoc (4.1.1)
       json (~> 1.4)
-    representable (1.7.5)
+    representable (1.7.6)
       multi_json
       nokogiri
     request_store (1.0.5)
@@ -183,7 +183,7 @@ GEM
       simplecov-html (~> 0.8.0)
     simplecov-html (0.8.0)
     slop (3.4.7)
-    sprockets (2.10.1)
+    sprockets (2.11.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
