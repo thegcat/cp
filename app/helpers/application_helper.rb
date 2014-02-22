@@ -10,7 +10,7 @@ module ApplicationHelper
     return unless message.present?
     content_tag :div, class: name, :'data-alert' => true do
       concat message
-      concat content_tag :a, '&times;'.html_safe, href: '#', class: :close
+      concat content_tag :a, '×', href: '#', class: :close
     end
   end
 end

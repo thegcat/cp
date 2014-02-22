@@ -1,7 +1,7 @@
 <div class="project <%= @project.html_class -%> edit">
-  <h1>Edit project</h1>
-  <%= form_for @project do |f| -%>
-    <%= f.label :name, 'Name' -%> <%= f.text_field :name %>
-    <%= f.submit 'Save' %>
-  <% end -%>
+  <h1><%=t 'projects.edit' -%></h1>
+  <%= form_for @project do |f| %>
+    <%= f.label :name, t('projects.attributes.name') -%> <%= f.text_field :name %>
+    <%= f.submit t('global.save') %>
+  <% end %>
 </div>

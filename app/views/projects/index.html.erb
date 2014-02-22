@@ -1,6 +1,6 @@
-<h1>Projects</h1>
-<ul class="projects" id="projects">
+<h1><%=t 'projects.plural' -%></h1>
+<ul class="projects">
   <% @projects.each do |project| -%>
-    <li><%= project.named_link -%></li>
+    <li class="project"><%= project.named_link -%></li>
   <% end -%>
 </ul>

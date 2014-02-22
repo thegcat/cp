@@ -1,3 +1,16 @@
 en:
   projects:
+    new: New project
+    edit: Edit project
     singular_with_number: "Project #%{id}"
+    plural: Projects
+    creation_successful: Project created
+    update_successful: Project updated
+    destruction_successful: Project deleted
+    attributes:
+      name: Name
+  global:
+    create: Create
+    save: Save
+    edit: Edit
+    delete: Delete

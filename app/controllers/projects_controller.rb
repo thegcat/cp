@@ -50,7 +50,7 @@ class ProjectsController < ApplicationController
   def destroy
     begin
       @project = project_destroy_service.process(params[:id])
-      flash[:notice] = t('projects.destroy_successful')
+      flash[:notice] = t('projects.destruction_successful')
     end
 
     redirect_to projects_path
