@@ -1,6 +1,7 @@
-<div id='edit-project-<%= @project.id -%>' class='project edit'>
-  <%= form_for @project, url: {action: :update}, method: :patch do |f| -%>
-    <%= f.text_field :name %>
+<div class="<%= @project.html_class -%> edit">
+  <h1>Edit project</h1>
+  <%= form_for @project do |f| -%>
+    <%= f.label :name, 'Name' -%> <%= f.text_field :name %>
     <%= f.submit 'Save' %>
   <% end -%>
 </div>

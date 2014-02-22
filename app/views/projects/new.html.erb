@@ -1,6 +1,7 @@
 <div id="new-project" class="project new">
-  <%= form_for :project, url: {action: :create} do |f| -%>
-    <%= f.text_field :name %>
+  <h1>New project</h1>
+  <%= form_for @project do |f| -%>
+    <%=f.label :name, 'Name' -%> <%= f.text_field :name %>
     <%= f.submit "Create" %>
   <% end -%>
 </div>

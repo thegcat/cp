@@ -4,6 +4,10 @@ class ProjectsController < ApplicationController
   represents :json, Project
 
   def new
+    # form_for does some magic if we pass it an empty AR object as opposed
+    # to just telling it we're working on a :project. That works for now, but
+    # we probably don't want to keep this here.
+    @project = Project.new
   end
 
   def create
