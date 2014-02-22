@@ -4,7 +4,7 @@ describe ProjectsController do
   let(:project_creator) {MiniTest::Mock.new}
   let(:project_updater) {MiniTest::Mock.new}
   let(:project_destroyer) {MiniTest::Mock.new}
-  let(:some_project) {projects(:one)}
+  let(:some_project) {FactoryGirl.build_stubbed(:project)}
   let(:project_params) {{}}
 
   describe "#new" do
@@ -55,6 +55,8 @@ describe ProjectsController do
   end
 
   describe "#edit" do
+    # TODO this shouldn't go through the DB
+    let(:some_project) {FactoryGirl.create(:project)}
     let(:action) do
       lambda do
         get :edit, id: some_project.id
@@ -66,6 +68,8 @@ describe ProjectsController do
     it {assert_equal assigns(:project), some_project}
     it {assert_response :success}
     it {assert_template :edit}
+
+    after(:all) {some_project.destroy}
   end
 
   describe "#update" do
@@ -103,6 +107,8 @@ describe ProjectsController do
   end
 
   describe "#show" do
+    # TODO this shouldn't go through the DB
+    let(:some_project) {FactoryGirl.create(:project)}
     let(:action) do
       lambda do
         get :show, id: some_project.id
@@ -114,20 +120,26 @@ describe ProjectsController do
     it {assert_equal assigns(:project), some_project}
     it {assert_response :success}
     it {assert_template :show}
+
+    after(:all) {some_project.destroy}
   end
 
   describe "#index" do
+    # TODO this shouldn't go through the DB
+    let(:some_project) {FactoryGirl.create(:project)}
     let(:action) do
       lambda do
         get :index
       end
     end
 
-    before {action.call}
+    before {some_project; action.call}
 
-    it {assert_equal assigns(:projects), [some_project]}
+    it {assert_equal [some_project], assigns(:projects).to_a}
     it {assert_response :success}
     it {assert_template :index}
+
+    after(:all) {some_project.destroy}
   end
 
   describe "#destroy" do
