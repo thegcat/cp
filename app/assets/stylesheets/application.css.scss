@@ -1,0 +1,11 @@
+/*
+ *= require_self
+
+ *= require_directory .
+ */
+
+@import "foundation/foundation_and_overrides";
+
+.notice {
+  @extend .alert-box, .success;
+}

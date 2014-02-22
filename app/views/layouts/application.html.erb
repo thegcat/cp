@@ -1,14 +1,43 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>ChiliProject</title>
-  <%= stylesheet_link_tag    "application", media: "all" %>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>ChiliProject</title>
+
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+  <nav class="top-bar" data-topbar>
+    <ul class="title-area">
+      <li class="name">
+      <h1><a href="#">ChiliProject</a></h1>
+      </li>
+      <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+    </ul>
+  </nav>
+
+
+  <section role="main">
+    <div class="row">
+      <div class="medium-3 columns">
+        <div class="sidebar">
+        </div>
+      </div>
+      <div class="medium-9 columns">
+        <% if notice.present? -%>
+        <div data-alert class="notice">
+          <%= notice -%><a href="#" class="close">&times;</a>
+        </div>
+        <% end -%>
+        <%= yield %>
+      </div>
+    </div>
+  </section>
   <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+  </body>
 </html>
