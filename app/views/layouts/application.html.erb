@@ -29,11 +29,7 @@
         </div>
       </div>
       <div class="medium-9 columns">
-        <% if notice.present? -%>
-        <div data-alert class="notice">
-          <%= notice -%><a href="#" class="close">&times;</a>
-        </div>
-        <% end -%>
+        <%= render_flashes :alert, :notice -%>
         <%= yield %>
       </div>
     </div>

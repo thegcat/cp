@@ -9,3 +9,7 @@
 .notice {
   @extend .alert-box, .success;
 }
+
+.alert {
+  @extend .alert-box, .warning;
+}
