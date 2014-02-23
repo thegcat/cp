@@ -1,7 +1,8 @@
 <div class="project <%= @project.html_class -%> edit">
   <h1><%=t 'projects.edit' -%></h1>
   <%= form_for @project do |f| %>
-    <%= f.label :name, t('projects.attributes.name') -%> <%= f.text_field :name %>
+    <%= f.label :name, t('projects.attributes.name') -%>
+    <%= f.text_field :name, placeholder: t('projects.singular_with_number', id: @project.id) %>
     <%= f.submit t('global.save'), class: :button %>
     <%# TODO: use a hidden back_link form parameter instead of rails magic -%>
     <%= link_to t('global.cancel'), :back, class: :button %>
