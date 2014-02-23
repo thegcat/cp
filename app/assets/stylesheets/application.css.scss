@@ -6,6 +6,10 @@
 
 @import "foundation/foundation_and_overrides";
 
+section[role="main"] {
+  margin-top: rem-calc(20);
+}
+
 .notice {
   @extend .alert-box, .success;
 }
