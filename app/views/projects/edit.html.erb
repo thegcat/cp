@@ -3,5 +3,7 @@
   <%= form_for @project do |f| %>
     <%= f.label :name, t('projects.attributes.name') -%> <%= f.text_field :name %>
     <%= f.submit t('global.save'), class: :button %>
+    <%# TODO: use a hidden back_link form parameter instead of rails magic -%>
+    <%= link_to t('global.cancel'), :back, class: :button %>
   <% end %>
 </div>
