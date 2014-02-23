@@ -1,0 +1,14 @@
+<% if user_signed_in? -%>
+  <li class="active has-dropdown">
+    <a href="#"><%=t 'devise.sessions.greeting', name: current_user.email -%></a>
+    <ul class="dropdown">
+      <li>
+        <%= link_to t('devise.sessions.sign_out'), destroy_user_session_path, method: :delete %>
+      </li>
+    </ul>
+  </li>
+<% else -%>
+  <li class="active">
+    <%= link_to t('devise.sessions.sign_in'), new_user_session_path %>
+  </li>
+<% end -%>
