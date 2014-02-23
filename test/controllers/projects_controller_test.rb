@@ -7,13 +7,6 @@ describe ProjectsController do
   let(:some_project) {FactoryGirl.build_stubbed(:project)}
   let(:project_params) {{}}
 
-  # TODO: we'll probably want a nice way to have authenticated users or guests
-  before(:all) do
-    def @controller.user_signed_in?
-      false
-    end
-  end
-
   describe '#new' do
     let(:action) do
       lambda do
