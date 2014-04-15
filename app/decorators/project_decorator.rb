@@ -9,7 +9,7 @@ class ProjectDecorator < Draper::Decorator
   end
 
   def named_link
-    h.link_to(name_or_default, object, {class: html_class})
+    h.link_to(name_or_default, object, class: html_class)
   end
 
   def html_class

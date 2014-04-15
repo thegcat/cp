@@ -17,7 +17,7 @@ describe ProjectCreator do
 
   it 'must bubble up errors' do
     def project_store.create(*args)
-      raise StandardError
+      fail StandardError
     end
 
     proc {@project_creator.process({})}.must_raise(ProjectCreator::CreationError)

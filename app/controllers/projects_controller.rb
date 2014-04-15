@@ -15,7 +15,8 @@ class ProjectsController < ApplicationController
       @project = project_creation_service.process(project_params)
       flash[:notice] = t('projects.creation_successful')
     rescue ProjectCreator::CreationError
-      head :status => :unprocessable_entity and return
+      head status: :unprocessable_entity
+      return
     end
 
     respond_with @project
@@ -31,7 +32,8 @@ class ProjectsController < ApplicationController
       @project = project_update_service.process(params[:id], project_params)
       flash[:notice] = t('projects.update_successful')
     rescue ProjectUpdater::UpdateError
-      head status: :unprocessable_entity and return
+      head status: :unprocessable_entity
+      return
     end
 
     respond_with @project

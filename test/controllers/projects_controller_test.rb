@@ -24,7 +24,7 @@ describe ProjectsController do
     let(:action) do
       lambda do
         @controller.stub :project_creation_service, project_creator do
-          post :create, {project: project_params}
+          post :create, project: project_params
         end
       end
     end
@@ -45,7 +45,7 @@ describe ProjectsController do
     describe 'when project creation fails' do
       before do
         def project_creator.process(*args)
-          raise ProjectCreator::CreationError
+          fail ProjectCreator::CreationError
         end
         action.call
       end
@@ -76,7 +76,7 @@ describe ProjectsController do
     let(:action) do
       lambda do
         @controller.stub :project_update_service, project_updater do
-          put :update, {id: some_project.id, project: project_params}
+          put :update, id: some_project.id, project: project_params
         end
       end
     end
@@ -97,7 +97,7 @@ describe ProjectsController do
     describe 'when project update fails' do
       before do
         def project_updater.process(*args)
-          raise ProjectUpdater::UpdateError
+          fail ProjectUpdater::UpdateError
         end
         action.call
       end
@@ -107,7 +107,7 @@ describe ProjectsController do
   end
 
   describe '#show' do
-    # TODO this shouldn't go through the DB
+    # TODO: this shouldn't go through the DB
     let(:some_project) {FactoryGirl.create(:project)}
     let(:action) do
       lambda do
@@ -125,7 +125,7 @@ describe ProjectsController do
   end
 
   describe '#index' do
-    # TODO this shouldn't go through the DB
+    # TODO: this shouldn't go through the DB
     let(:some_project) {FactoryGirl.create(:project)}
     let(:action) do
       lambda do
@@ -133,7 +133,11 @@ describe ProjectsController do
       end
     end
 
-    before {some_project; action.call}
+    before do
+      # make sure the project exists
+      some_project
+      action.call
+    end
 
     it {assert_equal [some_project], assigns(:projects).to_a}
     it {assert_response :success}
@@ -146,7 +150,7 @@ describe ProjectsController do
     let(:action) do
       lambda do
         @controller.stub :project_destroy_service, project_destroyer do
-          delete :destroy, {id: some_project.id}
+          delete :destroy, id: some_project.id
         end
       end
     end

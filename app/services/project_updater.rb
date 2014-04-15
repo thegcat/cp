@@ -14,7 +14,7 @@ class ProjectUpdater
     rescue StandardError
       raise UpdateError
     end
-    return p
+    p
   end
 
   private

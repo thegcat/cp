@@ -1,0 +1,21 @@
+AllCops:
+  Exclude:
+    - db/**
+    - config/**
+    - script/**
+  Include:
+    - Rakefile
+    - config.ru
+
+Documentation:
+  Enabled: false
+
+LineLength:
+  Max: 99
+
+SpaceInsideBlockBraces:
+  EnforcedStyle: no_space
+  SpaceBeforeBlockParameters: false
+
+SpaceInsideHashLiteralBraces:
+  EnforcedStyle: no_space

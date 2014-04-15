@@ -13,7 +13,7 @@ describe ProjectDestroyer do
     @project_destroyer = ProjectDestroyer.new(project_store)
   end
 
-  let(:action) {lambda {@project_destroyer.process(some_project_id)}}
+  let(:action) {->() {@project_destroyer.process(some_project_id)}}
 
   it 'must find the correct project' do
     action.call

@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   include Roar::Rails::ControllerAdditions
 
-  before_filter :set_representer_config
+  before_action :set_representer_config
 
   # Copied from https://github.com/apotonick/roar-rails/pull/54
   def set_representer_config

@@ -14,7 +14,7 @@ describe ProjectUpdater do
     @project_updater = ProjectUpdater.new(project_store)
   end
 
-  let(:action) {lambda {@project_updater.process(some_project_id, project_params)}}
+  let(:action) {->() {@project_updater.process(some_project_id, project_params)}}
 
   it 'must find the correct project' do
     action.call
@@ -34,7 +34,7 @@ describe ProjectUpdater do
 
   it 'must bubble up errors' do
     def some_project.update(*args)
-      raise StandardError
+      fail StandardError
     end
 
     proc {action.call}.must_raise(ProjectUpdater::UpdateError)

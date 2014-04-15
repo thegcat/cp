@@ -8,7 +8,7 @@ class ProjectDestroyer
   def process(id)
     p = @project_store.find(id)
     p.destroy
-    return p
+    p
   end
 
   private

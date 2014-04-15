@@ -13,7 +13,7 @@ class ProjectCreator
     rescue StandardError
       raise CreationError
     end
-    return p
+    p
   end
 
   private
