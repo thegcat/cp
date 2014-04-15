@@ -3,8 +3,8 @@ require "project_updater"
 
 describe ProjectUpdater do
   let(:project_params) {{name: "Some other project"}}
-  let(:project_store) {MiniTest::Mock.new}
-  let(:some_project) {MiniTest::Mock.new}
+  let(:project_store) {Minitest::Mock.new}
+  let(:some_project) {Minitest::Mock.new}
   let(:some_project_id) {124}
 
   before do

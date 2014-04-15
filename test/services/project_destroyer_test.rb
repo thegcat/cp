@@ -2,8 +2,8 @@ require "services_test_helper"
 require "project_destroyer"
 
 describe ProjectDestroyer do
-  let(:project_store) {MiniTest::Mock.new}
-  let(:some_project) {MiniTest::Mock.new}
+  let(:project_store) {Minitest::Mock.new}
+  let(:some_project) {Minitest::Mock.new}
   let(:some_project_id) {124}
 
   before do

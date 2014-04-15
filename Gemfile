@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.4'
+gem 'rails', '4.1.0'
 
 # Use sqlite3 as the database for Active Record
 platforms :ruby do
@@ -52,9 +52,8 @@ end
 
 # Use minitest for tests
 group :development, :test do
-  gem 'minitest-rails', '~> 1.0.0.beta2'
-  # use vanilla gem once https://github.com/blowmage/minitest-rails-capybara/pull/21 is resolved
-  gem 'minitest-rails-capybara', github: 'jordanbrock/minitest-rails-capybara', ref: 'f043c5a'
+  gem 'minitest-rails', '~> 2.0.0.beta1'
+  gem 'minitest-rails-capybara', '~> 2.0.0.beta1'
   gem 'factory_girl_rails'
 end
 

@@ -1,4 +1,4 @@
-MiniTest::Rails::Testing.default_tasks << 'controllers'
-MiniTest::Rails::Testing.default_tasks << 'integration'
-MiniTest::Rails::Testing.default_tasks << 'models'
-MiniTest::Rails::Testing.default_tasks << 'services'
+Minitest::Rails::Testing.default_tasks << 'controllers'
+Minitest::Rails::Testing.default_tasks << 'integration'
+Minitest::Rails::Testing.default_tasks << 'models'
+Minitest::Rails::Testing.default_tasks << 'services'

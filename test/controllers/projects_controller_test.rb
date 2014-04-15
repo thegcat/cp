@@ -1,9 +1,9 @@
 require "test_helper"
 
 describe ProjectsController do
-  let(:project_creator) {MiniTest::Mock.new}
-  let(:project_updater) {MiniTest::Mock.new}
-  let(:project_destroyer) {MiniTest::Mock.new}
+  let(:project_creator) {Minitest::Mock.new}
+  let(:project_updater) {Minitest::Mock.new}
+  let(:project_destroyer) {Minitest::Mock.new}
   let(:some_project) {FactoryGirl.build_stubbed(:project)}
   let(:project_params) {{}}
 

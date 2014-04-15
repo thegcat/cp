@@ -3,7 +3,7 @@ require "project_creator"
 
 describe ProjectCreator do
   let(:project_params) {{name: "Some project"}}
-  let(:project_store) {MiniTest::Mock.new}
+  let(:project_store) {Minitest::Mock.new}
 
   before do
     @project_creator = ProjectCreator.new(project_store)
