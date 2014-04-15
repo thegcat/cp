@@ -1,5 +1,5 @@
-require "services_test_helper"
-require "project_destroyer"
+require 'services_test_helper'
+require 'project_destroyer'
 
 describe ProjectDestroyer do
   let(:project_store) {Minitest::Mock.new}
@@ -15,18 +15,18 @@ describe ProjectDestroyer do
 
   let(:action) {lambda {@project_destroyer.process(some_project_id)}}
 
-  it "must find the correct project" do
+  it 'must find the correct project' do
     action.call
     project_store.verify
   end
 
-  it "must return the correct project" do
+  it 'must return the correct project' do
     skip "mocks can't be assert_same-d, so I guess I probably don't want a mock here?"
     p = action.call
     assert_same p, some_project
   end
 
-  it "must delete the project" do
+  it 'must delete the project' do
     action.call
     some_project.verify
   end

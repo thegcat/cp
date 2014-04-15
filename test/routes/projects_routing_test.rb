@@ -1,7 +1,7 @@
-require "test_helper"
+require 'test_helper'
 
-describe "Project Routes Integration Test" do
-  it "routes projects#new" do
+describe 'Project Routes Integration Test' do
+  it 'routes projects#new' do
     assert_routing(
       {method: :get, path: '/projects/new'},
       {controller: 'projects', action: 'new'}
@@ -12,7 +12,7 @@ describe "Project Routes Integration Test" do
     )
   end
 
-  it "routes projects#create" do
+  it 'routes projects#create' do
     assert_routing(
       {method: 'post', path: '/projects'},
       {controller: 'projects', action: 'create'}
@@ -23,7 +23,7 @@ describe "Project Routes Integration Test" do
     )
   end
 
-  it "routes projects#edit" do
+  it 'routes projects#edit' do
     assert_routing(
       {method: :get, path: '/projects/124/edit'},
       {controller: 'projects', action: 'edit', id: '124'}
@@ -34,7 +34,7 @@ describe "Project Routes Integration Test" do
     )
   end
 
-  it "routes projects#update" do
+  it 'routes projects#update' do
     assert_routing(
       {method: :put, path: '/projects/124'},
       {controller: 'projects', action: 'update', id: '124'}
@@ -45,7 +45,7 @@ describe "Project Routes Integration Test" do
     )
   end
 
-  it "routes projects#index" do
+  it 'routes projects#index' do
     assert_routing(
       {method: :get, path: '/projects'},
       {controller: 'projects', action: 'index'}
@@ -56,7 +56,7 @@ describe "Project Routes Integration Test" do
     )
   end
 
-  it "routes projects#show" do
+  it 'routes projects#show' do
     assert_routing(
       {method: :get, path: '/projects/124'},
       {controller: 'projects', action: 'show', id: '124'}
@@ -67,7 +67,7 @@ describe "Project Routes Integration Test" do
     )
   end
 
-  it "routes projects#delete" do
+  it 'routes projects#delete' do
     assert_routing(
       {method: :delete, path: '/projects/124'},
       {controller: 'projects', action: 'destroy', id: '124'}

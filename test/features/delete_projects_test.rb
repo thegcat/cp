@@ -1,7 +1,7 @@
-require "test_helper"
+require 'test_helper'
 
-feature "Delete Projects" do
-  scenario "it should delete a project" do
+feature 'Delete Projects' do
+  scenario 'it should delete a project' do
     project = FactoryGirl.create(:project)
     visit project_path(project)
     within '.project' do

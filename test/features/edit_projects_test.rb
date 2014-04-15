@@ -1,7 +1,7 @@
-require "test_helper"
+require 'test_helper'
 
-feature "Edit Projects" do
-  scenario "change my name" do
+feature 'Edit Projects' do
+  scenario 'change my name' do
     project = FactoryGirl.create(:project)
     visit project_path(project)
     within '.project' do

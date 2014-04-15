@@ -1,4 +1,4 @@
-require "test_helper"
+require 'test_helper'
 
 describe ProjectsController do
   let(:project_creator) {Minitest::Mock.new}
@@ -7,7 +7,7 @@ describe ProjectsController do
   let(:some_project) {FactoryGirl.build_stubbed(:project)}
   let(:project_params) {{}}
 
-  describe "#new" do
+  describe '#new' do
     let(:action) do
       lambda do
         get :new
@@ -20,7 +20,7 @@ describe ProjectsController do
     it {assert_template :new}
   end
 
-  describe "#create" do
+  describe '#create' do
     let(:action) do
       lambda do
         @controller.stub :project_creation_service, project_creator do
@@ -29,8 +29,8 @@ describe ProjectsController do
       end
     end
 
-    describe "when passing valid parameters" do
-      let(:project_params) {{"name" => "Some project"}}
+    describe 'when passing valid parameters' do
+      let(:project_params) {{'name' => 'Some project'}}
 
       before do
         project_creator.expect :process, some_project, [project_params]
@@ -42,7 +42,7 @@ describe ProjectsController do
       it {assert_redirected_to project_path(some_project)}
     end
 
-    describe "when project creation fails" do
+    describe 'when project creation fails' do
       before do
         def project_creator.process(*args)
           raise ProjectCreator::CreationError
@@ -54,8 +54,8 @@ describe ProjectsController do
     end
   end
 
-  describe "#edit" do
-    # TODO this shouldn't go through the DB
+  describe '#edit' do
+    # TODO: this shouldn't go through the DB
     let(:some_project) {FactoryGirl.create(:project)}
     let(:action) do
       lambda do
@@ -72,7 +72,7 @@ describe ProjectsController do
     after(:all) {some_project.destroy}
   end
 
-  describe "#update" do
+  describe '#update' do
     let(:action) do
       lambda do
         @controller.stub :project_update_service, project_updater do
@@ -81,8 +81,8 @@ describe ProjectsController do
       end
     end
 
-    describe "when passing valid parameters" do
-      let(:project_params) {{"name" => "Some project"}}
+    describe 'when passing valid parameters' do
+      let(:project_params) {{'name' => 'Some project'}}
 
       before do
         project_updater.expect :process, some_project, [some_project.id.to_s, project_params]
@@ -94,7 +94,7 @@ describe ProjectsController do
       it {assert_redirected_to project_path(some_project)}
     end
 
-    describe "when project update fails" do
+    describe 'when project update fails' do
       before do
         def project_updater.process(*args)
           raise ProjectUpdater::UpdateError
@@ -106,7 +106,7 @@ describe ProjectsController do
     end
   end
 
-  describe "#show" do
+  describe '#show' do
     # TODO this shouldn't go through the DB
     let(:some_project) {FactoryGirl.create(:project)}
     let(:action) do
@@ -124,7 +124,7 @@ describe ProjectsController do
     after(:all) {some_project.destroy}
   end
 
-  describe "#index" do
+  describe '#index' do
     # TODO this shouldn't go through the DB
     let(:some_project) {FactoryGirl.create(:project)}
     let(:action) do
@@ -142,7 +142,7 @@ describe ProjectsController do
     after(:all) {some_project.destroy}
   end
 
-  describe "#destroy" do
+  describe '#destroy' do
     let(:action) do
       lambda do
         @controller.stub :project_destroy_service, project_destroyer do
