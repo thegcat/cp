@@ -54,8 +54,8 @@ end
 
 # Use minitest for tests
 group :development, :test do
-  gem 'minitest-rails', '~> 2.0.0.beta1'
-  gem 'minitest-rails-capybara', '~> 2.0.0.beta1'
+  gem 'minitest-rails', '~> 2.0.0'
+  gem 'minitest-rails-capybara', '~> 2.0.0'
   gem 'factory_girl_rails'
 end
 
