@@ -1,7 +1,6 @@
 language: ruby
 cache: bundler
-# needed until https://github.com/blowmage/minitest-rails/issues/135 is solved
-script: bundle exec rake minitest:all
+script: bundle exec rake test:all
 rvm:
   - 2.0
   - 2.1
