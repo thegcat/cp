@@ -5,5 +5,5 @@ rvm:
   - 2.0
   - 2.1
   - jruby-head
-  - rbx
+  - rbx-2
 bundler_args: --without development,doc
