@@ -5,11 +5,17 @@ gem 'rails', '4.1.1'
 
 # Use sqlite3 as the database for Active Record
 platforms :ruby do
-  gem 'sqlite3'
+  gem 'pg'
+  group :development, :test do
+    gem 'sqlite3'
+  end
 end
 
 platforms :jruby do
-  gem 'activerecord-jdbcsqlite3-adapter'
+  gem 'activerecord-jdbcpostgresql-adapter'
+  group :development, :test do
+    gem 'activerecord-jdbcsqlite3-adapter'
+  end
 end
 
 # Use SCSS for stylesheets
