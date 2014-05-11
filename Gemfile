@@ -76,6 +76,8 @@ group :development do
   gem 'guard-minitest'
   gem 'guard-bundler'
   gem 'growl'
+
+  gem 'rails-footnotes', '~> 4.0'
 end
 
 # Use coveralls.io for code coverage
