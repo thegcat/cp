@@ -18,4 +18,4 @@ Footnotes.setup do |f|
 
   # Allow to open multiple notes :
   # f.multiple_notes = true
-end
+end if defined?(Footnotes)
