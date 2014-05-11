@@ -2,8 +2,8 @@ language: ruby
 cache: bundler
 script: bundle exec rake test:all
 rvm:
-  - 2.0
-  - 2.1
-  - jruby-head
-  - rbx-2
+- 2.0
+- 2.1
+- jruby-head
+- rbx-2
 bundler_args: --without development,doc
