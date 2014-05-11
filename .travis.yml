@@ -7,3 +7,10 @@ rvm:
 - jruby-head
 - rbx-2
 bundler_args: --without development,doc
+deploy:
+  provider: heroku
+  api_key:
+    secure: FcnR2TF+QsBJr1RlBAPpMnLBShJkyJhfjbxdS5FOx2RfDKeL28+BAmfkShgICHXgVbqLvVMopio8CiAq7iW3Ujblx3GqfZS2O3GmLJEnlM6t+u9PbbuDfziF+ol3HuYdFlEHDUpnFK4dQdaOSLvcQrolP9TQUjAvkPMw1/GgJyE=
+  app: chili4
+  on:
+    repo: thegcat/cp
