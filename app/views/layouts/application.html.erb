@@ -15,13 +15,17 @@
   <nav class="top-bar" data-topbar>
     <ul class="title-area">
       <li class="name">
-      <h1><a href="#">ChiliProject</a></h1>
+      <h1><a href="/">ChiliProject</a></h1>
       </li>
       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
     </ul>
     <section class="top-bar-section">
       <ul class="right">
         <%= render 'global/topbar_session' %>
+      </ul>
+
+      <ul class="left">
+        <%= render 'global/global_menu' -%>
       </ul>
     </section>
   </nav>
