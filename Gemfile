@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.6'
+gem 'rails', '4.1.8'
 
 # Use sqlite3 as the database for Active Record
 platforms :ruby do
@@ -67,8 +67,8 @@ end
 
 # Use minitest for tests
 group :development, :test do
-  gem 'minitest-rails', '~> 2.0.0'
-  gem 'minitest-rails-capybara', '~> 2.0.0'
+  gem 'minitest-rails', '~> 2.1.0'
+  gem 'minitest-rails-capybara', '~> 2.1.0'
   gem 'factory_girl_rails'
 end
 
